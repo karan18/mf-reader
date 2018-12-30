@@ -1,0 +1,4 @@
+bank:
+  'yes':
+    timestamp_format: '%d/%m/%Y %H:%M:%S'
+    bank_name: 'YES'
