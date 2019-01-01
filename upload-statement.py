@@ -10,7 +10,7 @@ from db import Db
 from config import Config
 
 def persist_bank_statement_to_db():
-    with open('resources/yes/042790700002429_27_12_2018_05-50-38.csv', mode='r') as csv_file:
+    with open('resources/yes/yes-start-01-jan-2018-end-01-jan-2019.csv', mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file, skipinitialspace=True)
         db = Db()
         c = Config().getConfig()
