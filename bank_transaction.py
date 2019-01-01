@@ -14,3 +14,4 @@ class BankTransaction(Base):
     credit = Column(Float)
     balance = Column(Float)
     bank = Column(String)
+

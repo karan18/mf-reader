@@ -2,3 +2,7 @@ bank:
   'yes':
     timestamp_format: '%d/%m/%Y %H:%M:%S'
     bank_name: 'YES'
+important_dates:
+  # This is the date on which we withdrew the funds from MFs for the 1st time for converting to
+  # direct way
+  withdrawal_date_for_converting_to_direct_way: 2018-09-15

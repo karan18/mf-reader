@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import sessionmaker
 
 class Db:
@@ -13,11 +14,16 @@ class Db:
     session = Session()
 
     @classmethod
-    def get_session(cls):
-        return cls.session
-
-    @classmethod
     def save(cls, obj_to_persist):
         cls.session.add(obj_to_persist)
-        cls.session.commit()
+        try:
+            cls.session.commit()
+        except IntegrityError as ire:
+            if ('Duplicate entry' in str(ire)):
+                print("Record already exists will not be persisted again: {}".format(ire.statement))
+                cls.session.rollback()
+
+    @classmethod
+    def get_session(cls):
+        return cls.session
 

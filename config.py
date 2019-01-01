@@ -20,6 +20,10 @@ class Config:
         else:
             return cls.config
 
+    @staticmethod
+    def print_line():
+        print('---------------------------------------------------------------')
+
 if __name__== "__main__":
     c = Config()
     print(c.getConfig())
