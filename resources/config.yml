@@ -2,6 +2,7 @@ bank:
   'yes':
     timestamp_format: '%d/%m/%Y %H:%M:%S'
     bank_name: 'YES'
+    statement_dir: ./resources/yes
 important_dates:
   # This is the date on which we withdrew the funds from MFs for the 1st time for converting to
   # direct way
