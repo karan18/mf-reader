@@ -1,14 +1,12 @@
-import sys
-
 import csv
+import glob
 from datetime import datetime
 
-
 from bank_transaction import BankTransaction
-from db import Db
-import glob
 from config import Config
 from constants import KEY_BANK, KEY_STATEMENT_DIR, KEY_YES_BANK
+from db import Db
+
 
 def persist_bank_statement_to_db():
     c = Config().getConfig()
@@ -18,7 +16,7 @@ def persist_bank_statement_to_db():
         print('\t - {}'.format(f))
 
     for f in glob.glob(statement_dir + '/*.csv'):
-        c.print_line()
+        Config.print_line()
         print('Processing: {}'.format(f))
         with open(f, mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file, skipinitialspace=True)
