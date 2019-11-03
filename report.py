@@ -8,7 +8,7 @@ class Report:
         db = Db()
         session = db.get_session()
         for f in session.query(Fund).all():
-            txns = session.query(BankTransaction).filter(BankTransaction.description.like(f.statement_description_prefix)).all()
+            txns = session.query(BankTransaction).filter(BankTransaction.description.like(f.statement_description_prefix)).order_by(BankTransaction.txn_date.desc())
             print('{} ({})'.format(f.name, f.folio_number))
             print('{}\t{}\t{}'.format('Date', 'Description', 'Amount'))
             for t in txns:
